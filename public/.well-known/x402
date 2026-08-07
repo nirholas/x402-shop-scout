@@ -1,0 +1,363 @@
+{
+  "x402Version": 1,
+  "name": "x402-shop-scout",
+  "description": "Live marketplace intelligence over eBay Browse — listings search and is-this-a-deal verdicts",
+  "homepage": "https://nirholas.github.io/x402-shop-scout/",
+  "repository": "https://github.com/nirholas/x402-shop-scout",
+  "contact": "nichxbt@gmail.com",
+  "documentation": "https://nirholas.github.io/x402-shop-scout/api",
+  "skill": "https://github.com/nirholas/x402-shop-scout/blob/main/skill.md",
+  "openapi": "https://github.com/nirholas/x402-shop-scout/blob/main/openapi.json",
+  "resources": [
+    {
+      "resource": "GET /search",
+      "description": "Search live marketplace listings with prices, shipping, condition and seller reputation.",
+      "price": "$0.002",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "base-sepolia",
+          "asset": "USDC",
+          "assetAddress": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+          "payTo": "0x40252CFDF8B20Ed757D61ff157719F33Ec332402",
+          "maxAmountRequired": "2000"
+        },
+        {
+          "scheme": "exact",
+          "network": "solana",
+          "asset": "USDC",
+          "assetAddress": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "payTo": "WwwuGbqHrwF5RG89KhUbmRWEvjnRH9k5kVM5p7T3WwW",
+          "maxAmountRequired": "2000",
+          "extra": {
+            "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4",
+            "decimals": 6
+          }
+        }
+      ],
+      "network": "base-sepolia",
+      "asset": "USDC",
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "listings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "itemId": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "integer"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "condition": {
+                  "type": "string"
+                },
+                "seller": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "feedbackPercentage": {
+                      "type": "number"
+                    },
+                    "feedbackScore": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "buyingOption": {
+                  "type": "string"
+                },
+                "shipping": {
+                  "type": "object",
+                  "properties": {
+                    "cost": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "location": {
+                  "type": "string"
+                },
+                "itemWebUrl": {
+                  "type": "string"
+                },
+                "imageUrl": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          },
+          "payment": {
+            "type": "object",
+            "properties": {
+              "success": {
+                "type": "boolean"
+              },
+              "rail": {
+                "type": "string"
+              },
+              "network": {
+                "type": "string"
+              },
+              "transaction": {
+                "type": "string"
+              },
+              "payer": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "asset": {
+                "type": "string"
+              },
+              "resource": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "resource": "GET /deal-check/:itemId",
+      "description": "Grade one listing against comparable listings and return a deal verdict with the arithmetic.",
+      "price": "$0.002",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "base-sepolia",
+          "asset": "USDC",
+          "assetAddress": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+          "payTo": "0x40252CFDF8B20Ed757D61ff157719F33Ec332402",
+          "maxAmountRequired": "2000"
+        },
+        {
+          "scheme": "exact",
+          "network": "solana",
+          "asset": "USDC",
+          "assetAddress": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "payTo": "WwwuGbqHrwF5RG89KhUbmRWEvjnRH9k5kVM5p7T3WwW",
+          "maxAmountRequired": "2000",
+          "extra": {
+            "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4",
+            "decimals": 6
+          }
+        }
+      ],
+      "network": "base-sepolia",
+      "asset": "USDC",
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "checkedAt": {
+            "type": "string"
+          },
+          "item": {
+            "type": "object",
+            "properties": {
+              "itemId": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "price": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number"
+                  },
+                  "currency": {
+                    "type": "string"
+                  }
+                }
+              },
+              "condition": {
+                "type": "string"
+              },
+              "seller": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "feedbackPercentage": {
+                    "type": "number"
+                  },
+                  "feedbackScore": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "buyingOption": {
+                "type": "string"
+              },
+              "shipping": {
+                "type": "object",
+                "properties": {
+                  "cost": {
+                    "type": "integer"
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              },
+              "location": {
+                "type": "string"
+              },
+              "itemWebUrl": {
+                "type": "string"
+              },
+              "imageUrl": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "totalCost": {
+            "type": "number"
+          },
+          "comparables": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "priceRange": {
+                "type": "object",
+                "properties": {
+                  "min": {
+                    "type": "number"
+                  },
+                  "max": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "median": {
+                "type": "number"
+              },
+              "mean": {
+                "type": "number"
+              },
+              "sample": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "itemId": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "totalCost": {
+                      "type": "integer"
+                    },
+                    "condition": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "verdict": {
+            "type": "string"
+          },
+          "deltaVsMedian": {
+            "type": "number"
+          },
+          "percentVsMedian": {
+            "type": "integer"
+          },
+          "reasoning": {
+            "type": "string"
+          },
+          "payment": {
+            "type": "object",
+            "properties": {
+              "success": {
+                "type": "boolean"
+              },
+              "rail": {
+                "type": "string"
+              },
+              "network": {
+                "type": "string"
+              },
+              "transaction": {
+                "type": "string"
+              },
+              "payer": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "asset": {
+                "type": "string"
+              },
+              "resource": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "free": [
+    {
+      "resource": "GET /health",
+      "description": "Liveness, active data source, and configured payment rails"
+    },
+    {
+      "resource": "GET /.well-known/x402",
+      "description": "This manifest"
+    }
+  ]
+}
