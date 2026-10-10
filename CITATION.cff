@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "x402-shop-scout"
+abstract: "Live marketplace intelligence over eBay Browse: listings search and is-this-a-deal verdicts"
+license: Apache-2.0
+repository-code: "https://github.com/nirholas/x402-shop-scout"
+url: "https://three.ws"
+authors:
+  - name: three.ws
+    website: "https://three.ws"
