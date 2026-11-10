@@ -1,0 +1,19 @@
+{
+  "name": "x402-shop-scout",
+  "version": "0.1.0",
+  "description": "Live marketplace intelligence over eBay Browse: listing search and deal verdicts, paid per query over x402.",
+  "author": {
+    "name": "nirholas"
+  },
+  "repository": "https://github.com/nirholas/x402-shop-scout",
+  "homepage": "https://nirholas.github.io/x402-shop-scout/",
+  "license": "Apache-2.0",
+  "keywords": [
+    "x402",
+    "ebay",
+    "price-comparison",
+    "deal-check",
+    "usdc",
+    "ai-agents"
+  ]
+}

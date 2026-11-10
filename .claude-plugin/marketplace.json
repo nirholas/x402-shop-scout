@@ -1,0 +1,23 @@
+{
+  "name": "x402-shop-scout",
+  "owner": {
+    "name": "nirholas"
+  },
+  "description": "Live marketplace intelligence over eBay Browse: listing search and deal verdicts, paid per query over x402.",
+  "plugins": [
+    {
+      "name": "x402-shop-scout",
+      "source": "./plugins/x402-shop-scout",
+      "description": "Live marketplace intelligence over eBay Browse: listing search and deal verdicts, paid per query over x402.",
+      "category": "data",
+      "tags": [
+        "x402",
+        "ebay",
+        "price-comparison",
+        "deal-check",
+        "usdc",
+        "ai-agents"
+      ]
+    }
+  ]
+}
